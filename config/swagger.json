@@ -1,0 +1,76 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Library-App"
+  },
+  "host": "127.0.0.1:3003",
+  "basePath": "/api/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/book": {
+      "get": {
+        "tags": [
+          "Book"
+        ],
+        "summary": "List Of Books",
+        "description": "Getting List of Books",
+        "operationId": "GetBooks",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GetBooksResponse"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "GetBooksResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "number",
+          "example": 1
+        },
+        "message": {
+          "type": "string",
+          "example": "Operation success"
+        },
+        "data": {
+          "type": "array",
+          "example": [
+            {
+              "_id": "5f68f179f58dd0670ce231db",
+              "author": "shoaib",
+              "title": "Node Cook Book",
+              "isbn": "4",
+              "releaseDate": "2020-09-20T00:00:00.000Z",
+              "createdAt": "2020-09-21T18:31:21.442Z"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
